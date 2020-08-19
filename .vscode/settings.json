@@ -1,0 +1,20 @@
+{
+  "editor.mouseWheelZoom": true,
+
+  "workbench.colorCustomizations": {
+    "[Gruvbox - Dark Mode]": {
+      "editor.selectionBackground": "#0400ff"
+    },
+    "[Darcula - Dark Mode]": {
+      "editor.selectionBackground": "#ff00c8b9"
+    },
+    "[Oceanic Next (dimmed bg)]": {
+      "editor.background": "#181818"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "[NotepadPlusPlus Remixed Theme]": {
+      "comments": "#a7a7a7"
+    },
+  },
+}
