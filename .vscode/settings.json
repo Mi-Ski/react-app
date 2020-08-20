@@ -10,6 +10,12 @@
     },
     "[Oceanic Next (dimmed bg)]": {
       "editor.background": "#181818"
+    },
+    "[OS X Flat Dark]": {
+      "editor.selectionBackground": "#2e89ff7a",
+    },
+    "[Pop N' Lock Theme by Luxcium ✨ Alexis's Black ⛷]": {
+      "editorCursor.foreground": "#ffffff"
     }
   },
   "editor.tokenColorCustomizations": {
