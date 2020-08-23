@@ -9,7 +9,8 @@ class App extends Component {
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 26 }
     ],
-    otherState: 'some other value'
+    otherState: 'some other value',
+    personsVisibility: false
   };
 
   switchNameHandler = (newName) => {
@@ -34,6 +35,10 @@ class App extends Component {
     });
   }
 
+  togglePersonsHandler = () => {
+
+  }
+
   render() {
     const myStyle = {
       backgroundColor: 'rgb(255, 65, 65)',
@@ -51,7 +56,8 @@ class App extends Component {
         <p>This is really working!</p>
         <button 
           style={myStyle}
-          onClick={ () => this.switchNameHandler('Maxxx!') }>Switch Name</button>
+          onClick={this.togglePersonsHandler() }>Switch Name</button>
+        <div>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
@@ -68,6 +74,7 @@ class App extends Component {
           name={this.state.persons[2].name}
           age={this.state.persons[2].age}
         />
+        </div>
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
