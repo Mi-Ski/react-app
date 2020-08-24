@@ -5,4 +5,8 @@
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+    cursor: pointer;
+    border-radius: 999rem;
+} .Person:hover{
+    background-color: #f703ff13;
 }

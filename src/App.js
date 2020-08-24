@@ -1,88 +1,76 @@
-import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
+import React, { Component } from "react";
+import "./App.css";
+import Person from "./Person/Person";
+import "./Person/Person.css";
 
 class App extends Component {
-  state = {
-    persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
-    ],
-    otherState: 'some other value',
-    personsVisibility: false
-  };
+	state = {
+		persons: [
+			{ id: 'sdff', name: "Max", age: 28 },
+			{ id: 'dfsd', name: "Manu", age: 29 },
+			{ id: '34l', name: "Stephanie", age: 26 },
+		],
+		otherState: "some other value",
+		personsVisibility: false,
+	};
 
-  switchNameHandler = (newName) => {
-    // console.log('Was clicked!');
-    // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-    this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: 'Manu', age: 29 },
-        { name: 'Stephanie', age: 27 }
-      ],
-    });
-  };
+	deletePersonHandler = (index) => {
+		// slice without arguments just returns a true copy of the array
+		// const persons = this.state.persons.slice();
+		const persons = [...this.state.persons];
+		persons.splice(index, 1);
+		this.setState({persons: persons});
+	}
 
-  inputNameChange = (event) => {
-    this.setState({
-      persons: [
-        { name: 'Max', age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: 'Stephanie', age: 27 }
-      ],
-    });
-  }
+	inputNameChange = (event) => {
+		this.setState({
+			persons: [
+				{ name: "Max", age: 28 },
+				{ name: event.target.value, age: 29 },
+				{ name: "Stephanie", age: 27 },
+			],
+		});
+	};
 
-  togglePersonsHandler = () => {
-    const showState = this.state.personsVisibility;
-    this.setState({personsVisibility: !showState});
-  }
+	togglePersonsHandler = () => {
+		const showState = this.state.personsVisibility;
+		this.setState({ personsVisibility: !showState });
+	};
 
-  render() {
-    const myStyle = {
-      backgroundColor: 'rgb(255, 65, 65)',
-      font: 'inherit',
-      border: '1px solid white',
-      borderRadius: '999vw',
-      padding: '8px',
-      color: 'white',
-      cursor: 'pointer'
-    };
+	render() {
+		const myStyle = {
+			backgroundColor: "rgb(255, 65, 65)",
+			font: "inherit",
+			border: "1px solid white",
+			borderRadius: "999vw",
+			padding: "8px",
+			color: "white",
+			cursor: "pointer",
+		};
 
-    return (
-      <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
-        <button 
-          style={myStyle}
-          onClick={this.togglePersonsHandler}>Toggle List Visibility</button>
-        { 
-        this.state.personsVisibility ?
-          <div> 
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-            />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              click={this.switchNameHandler.bind(this, 'Max')}
-              changed={this.inputNameChange}
-            >
-              My Hobbies: Racing
-            </Person>
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-            />
-          </div> : null
-        }
-      </div>
-    );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
-  }
+		let persons = null;
+		if (this.state.personsVisibility) {
+			persons = (
+				<div>
+					{this.state.persons.map((el, index) => {
+						return <Person key={el.id} name={el.name} age={el.age} click={() => this.deletePersonHandler(index)} />;
+					})}
+				</div>
+			);
+		}
+
+		return (
+			<div className="App">
+				<h1>Hi, I'm a React App</h1>
+				<p>This is really working!</p>
+				<button style={myStyle} onClick={this.togglePersonsHandler}>
+					Toggle List Visibility
+				</button>
+				{persons}
+			</div>
+		);
+		// return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
+	}
 }
 
 export default App;
