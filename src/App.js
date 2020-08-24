@@ -36,7 +36,8 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-
+    const showState = this.state.personsVisibility;
+    this.setState({personsVisibility: !showState});
   }
 
   render() {
@@ -56,25 +57,28 @@ class App extends Component {
         <p>This is really working!</p>
         <button 
           style={myStyle}
-          onClick={this.togglePersonsHandler() }>Switch Name</button>
-        <div>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Max')}
-          changed={this.inputNameChange}
-        >
-          My Hobbies: Racing
-        </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        />
-        </div>
+          onClick={this.togglePersonsHandler}>Toggle List Visibility</button>
+        { 
+        this.state.personsVisibility ?
+          <div> 
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age}
+            />
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+              click={this.switchNameHandler.bind(this, 'Max')}
+              changed={this.inputNameChange}
+            >
+              My Hobbies: Racing
+            </Person>
+            <Person
+              name={this.state.persons[2].name}
+              age={this.state.persons[2].age}
+            />
+          </div> : null
+        }
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
