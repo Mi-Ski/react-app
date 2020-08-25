@@ -22,14 +22,21 @@ class App extends Component {
 		this.setState({persons: persons});
 	}
 
-	inputNameChange = (event) => {
-		this.setState({
-			persons: [
-				{ name: "Max", age: 28 },
-				{ name: event.target.value, age: 29 },
-				{ name: "Stephanie", age: 27 },
-			],
+	nameChnagedHandler = (event, id) => {
+		// only one person will match (return true)
+		const matchingPersonId = this.state.persons.findIndex(el => {
+			return el.id === id
 		});
+		const personToChange = {
+			...this.state.persons[matchingPersonId]
+		};
+
+		personToChange.name = event.target.value;
+
+		const newPersonsArray = [...this.state.persons];
+		newPersonsArray[matchingPersonId] = personToChange;
+
+		this.setState({ persons: newPersonsArray} );
 	};
 
 	togglePersonsHandler = () => {
@@ -53,7 +60,13 @@ class App extends Component {
 			persons = (
 				<div>
 					{this.state.persons.map((el, index) => {
-						return <Person key={el.id} name={el.name} age={el.age} click={() => this.deletePersonHandler(index)} />;
+						return <Person
+							key={el.id}
+							name={el.name}
+							age={el.age} 
+							click={() => this.deletePersonHandler(index)} 
+							changed={(event) => this.nameChnagedHandler(event, el.id)}
+						/>;
 					})}
 				</div>
 			);

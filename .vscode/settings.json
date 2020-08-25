@@ -16,6 +16,9 @@
     },
     "[Pop N' Lock Theme by Luxcium ✨ Alexis's Black ⛷]": {
       "editorCursor.foreground": "#ffffff"
+    },
+    "[Pop N' Lock Theme by Luxcium ✨ TSA/ASD 🧩]": {
+      "editorCursor.foreground": "#ffffff"
     }
   },
   "editor.tokenColorCustomizations": {
