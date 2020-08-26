@@ -21,6 +21,7 @@
       "editorCursor.foreground": "#ffffff"
     }
   },
+  
   "editor.tokenColorCustomizations": {
     "[NotepadPlusPlus Remixed Theme]": {
       "comments": "#a7a7a7"
