@@ -46,7 +46,7 @@ class App extends Component {
 
 	render() {
 		const myStyle = {
-			backgroundColor: "rgb(255, 65, 65)",
+			backgroundColor: "green",
 			font: "inherit",
 			border: "1px solid white",
 			borderRadius: "999vw",
@@ -70,6 +70,8 @@ class App extends Component {
 					})}
 				</div>
 			);
+
+			myStyle.backgroundColor = 'crimson';
 		}
 
 		return (
