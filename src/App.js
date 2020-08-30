@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 import "./Person/Person.css";
+import Radium from 'radium';
 
 class App extends Component {
 	state = {
@@ -11,7 +12,7 @@ class App extends Component {
 			{ id: '34l', name: "Stephanie", age: 26 },
 		],
 		otherState: "some other value",
-		personsVisibility: false,
+		personsVisibility: false
 	};
 
 	deletePersonHandler = (index) => {
@@ -53,6 +54,10 @@ class App extends Component {
 			padding: "8px",
 			color: "white",
 			cursor: "pointer",
+			':hover': {
+				backgroundColor: 'limegreen',
+				color: 'black'
+			}
 		};
 
 		let persons = null;
@@ -70,14 +75,25 @@ class App extends Component {
 					})}
 				</div>
 			);
-
 			myStyle.backgroundColor = 'crimson';
+			myStyle[':hover'] = {
+				backgroundColor: 'orange',
+				color: 'black'
+			}
+		}
+
+		let classes = [];
+		if (this.state.persons.length <= 2) {
+			classes.push('red');
+		}
+		if (this.state.persons.length <= 1) {
+			classes.push('bold');
 		}
 
 		return (
 			<div className="App">
 				<h1>Hi, I'm a React App</h1>
-				<p>This is really working!</p>
+				<p className={classes.join(' ')}>This is really working!</p>
 				<button style={myStyle} onClick={this.togglePersonsHandler}>
 					Toggle List Visibility
 				</button>
@@ -88,4 +104,5 @@ class App extends Component {
 	}
 }
 
-export default App;
+// radium == a higher order component
+export default Radium(App);
