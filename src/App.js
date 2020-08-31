@@ -1,8 +1,23 @@
 import React, { Component } from "react";
-import "./App.css";
+import styled from 'styled-components';
 import Person from "./Person/Person";
+import "./App.css";
 import "./Person/Person.css";
-import Radium from 'radium';
+
+const StyledButton = styled.button`
+			background-color: ${props => props.colChange ? 'red' : 'green'};
+			font: inherit;
+			border: 1px solid white;
+			border-radius: 999vw;
+			padding: 8px;
+			color: white;
+			cursor: pointer;
+
+			&:hover {
+				background-color: ${props => props.colChange ? 'orange' : 'limegreen'};
+				color: black;
+			}
+`
 
 class App extends Component {
 	state = {
@@ -47,17 +62,17 @@ class App extends Component {
 
 	render() {
 		const myStyle = {
-			backgroundColor: "green",
-			font: "inherit",
-			border: "1px solid white",
-			borderRadius: "999vw",
-			padding: "8px",
-			color: "white",
-			cursor: "pointer",
-			':hover': {
-				backgroundColor: 'limegreen',
-				color: 'black'
-			}
+				backgroundColor: "green",
+				font: "inherit",
+				border: "1px solid white",
+				borderRadius: "999vw",
+				padding: "8px",
+				color: "white",
+				cursor: "pointer",
+				':hover': {
+					backgroundColor: 'limegreen',
+					color: 'black'
+				}
 		};
 
 		let persons = null;
@@ -91,18 +106,18 @@ class App extends Component {
 		}
 
 		return (
-			<div className="App">
-				<h1>Hi, I'm a React App</h1>
-				<p className={classes.join(' ')}>This is really working!</p>
-				<button style={myStyle} onClick={this.togglePersonsHandler}>
-					Toggle List Visibility
-				</button>
-				{persons}
-			</div>
+				<div className="App">
+					<h1>Hi, I'm a React App</h1>
+					<p className={classes.join(' ')}>This is really working!</p>
+					<StyledButton colChange={this.state.personsVisibility} onClick={this.togglePersonsHandler}>
+						Toggle List Visibility
+					</StyledButton>
+					{persons}
+				</div>
 		);
 		// return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
 	}
 }
 
 // radium == a higher order component
-export default Radium(App);
+export default App;

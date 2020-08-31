@@ -1,4 +1,4 @@
-.Person {
+/* .Person {
     width: 60%;
     margin: 16px auto;
     border: 1px solid #eee;
@@ -10,3 +10,9 @@
 } .Person:hover{
     background-color: #f703ff13;
 }
+
+@media (min-width: 500px) {
+    .Person{
+        width: 500px
+    }
+} */
