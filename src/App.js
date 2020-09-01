@@ -1,23 +1,7 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
 import Person from "./Person/Person";
-import "./App.css";
+import classes from "./App.css";
 import "./Person/Person.css";
-
-const StyledButton = styled.button`
-			background-color: ${props => props.colChange ? 'red' : 'green'};
-			font: inherit;
-			border: 1px solid white;
-			border-radius: 999vw;
-			padding: 8px;
-			color: white;
-			cursor: pointer;
-
-			&:hover {
-				background-color: ${props => props.colChange ? 'orange' : 'limegreen'};
-				color: black;
-			}
-`
 
 class App extends Component {
 	state = {
@@ -26,7 +10,6 @@ class App extends Component {
 			{ id: 'dfsd', name: "Manu", age: 29 },
 			{ id: '34l', name: "Stephanie", age: 26 },
 		],
-		otherState: "some other value",
 		personsVisibility: false
 	};
 
@@ -61,21 +44,9 @@ class App extends Component {
 	};
 
 	render() {
-		const myStyle = {
-				backgroundColor: "green",
-				font: "inherit",
-				border: "1px solid white",
-				borderRadius: "999vw",
-				padding: "8px",
-				color: "white",
-				cursor: "pointer",
-				':hover': {
-					backgroundColor: 'limegreen',
-					color: 'black'
-				}
-		};
-
 		let persons = null;
+		let btnClasses = [classes.Button];
+
 		if (this.state.personsVisibility) {
 			persons = (
 				<div>
@@ -90,28 +61,24 @@ class App extends Component {
 					})}
 				</div>
 			);
-			myStyle.backgroundColor = 'crimson';
-			myStyle[':hover'] = {
-				backgroundColor: 'orange',
-				color: 'black'
-			}
+			btnClasses.push(classes.Red)
 		}
 
-		let classes = [];
+		let assignedHeaderClasses = [];
 		if (this.state.persons.length <= 2) {
-			classes.push('red');
+			assignedHeaderClasses.push(classes.red);
 		}
 		if (this.state.persons.length <= 1) {
-			classes.push('bold');
+			assignedHeaderClasses.push(classes.bold);
 		}
 
 		return (
-				<div className="App">
+				<div className={classes.App}>
 					<h1>Hi, I'm a React App</h1>
-					<p className={classes.join(' ')}>This is really working!</p>
-					<StyledButton colChange={this.state.personsVisibility} onClick={this.togglePersonsHandler}>
+					<p className={assignedHeaderClasses.join(' ')}>This is really working!</p>
+					<button className={btnClasses.join(' ')} onClick={this.togglePersonsHandler}>
 						Toggle List Visibility
-					</StyledButton>
+					</button>
 					{persons}
 				</div>
 		);
