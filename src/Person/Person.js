@@ -3,7 +3,7 @@ import classes from './Person.css';
 
 const person = (props) => {
     let random = Math.random();
-    if (random > 2) {
+    if (random > 0.7) {
         throw new Error ('a terrible failure occured!')
     }
 
