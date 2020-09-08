@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Person from "./Person/Person";
+import Persons from "../components/Persons/Persons";
 import classes from "./App.css";
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
 	state = {
@@ -43,24 +43,18 @@ class App extends Component {
 		this.setState({ personsVisibility: !showState });
 	};
 
+	//! ////////////////////////////////////
+	//!              Render               //
+	//! ////////////////////////////////////
+
 	render() {
-		let persons = null;
+		let personsToRender = null;
 		let btnClasses = [classes.Button];
 
 		if (this.state.personsVisibility) {
-			persons = (
-				<div>
-					{this.state.persons.map((el, index) => {
-						return <ErrorBoundary key={el.id}><Person
-							name={el.name}
-							age={el.age} 
-							click={() => this.deletePersonHandler(index)} 
-							changed={(event) => this.nameChnagedHandler(event, el.id)}
-						/></ErrorBoundary>;
-					})}
-				</div>
-			);
-			btnClasses.push(classes.Red)
+			personsToRender = (
+				<Persons persons={this.state.persons} clicked={this.deletePersonHandler} changed={this.nameChnagedHandler} 
+			/> )	
 		}
 
 		let assignedHeaderClasses = [];
@@ -78,10 +72,9 @@ class App extends Component {
 					<button className={btnClasses.join(' ')} onClick={this.togglePersonsHandler}>
 						Toggle List Visibility
 					</button>
-					{persons}
+					{personsToRender}
 				</div>
 		);
-		// return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
 	}
 }
 

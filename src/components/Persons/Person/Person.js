@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Person.css';
 
 const person = (props) => {
-    let random = Math.random();
-    if (random > 0.7) {
-        throw new Error ('a terrible failure occured!')
-    }
+// let random = Math.random();
+// if (random > 0.7) {
+    //     throw new Error ('a terrible failure occured!')
+    // }
 
     return (
         <div className={classes.Person}>
