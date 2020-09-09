@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit"
 import classes from "./App.css";
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
 	state = {
@@ -67,11 +67,7 @@ class App extends Component {
 
 		return (
 				<div className={classes.App}>
-					<h1>Hi, I'm a React App</h1>
-					<p className={assignedHeaderClasses.join(' ')}>This is really working!</p>
-					<button className={btnClasses.join(' ')} onClick={this.togglePersonsHandler}>
-						Toggle List Visibility
-					</button>
+					<Cockpit/>
 					{personsToRender}
 				</div>
 		);

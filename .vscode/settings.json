@@ -27,4 +27,5 @@
       "comments": "#a7a7a7"
     },
   },
+    "auto-close-tag.enableAutoCloseSelfClosingTag": true
 }
