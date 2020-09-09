@@ -49,7 +49,6 @@ class App extends Component {
 
 	render() {
 		let personsToRender = null;
-		let btnClasses = [classes.Button];
 
 		if (this.state.personsVisibility) {
 			personsToRender = (
@@ -57,17 +56,9 @@ class App extends Component {
 			/> )	
 		}
 
-		let assignedHeaderClasses = [];
-		if (this.state.persons.length <= 2) {
-			assignedHeaderClasses.push(classes.red);
-		}
-		if (this.state.persons.length <= 1) {
-			assignedHeaderClasses.push(classes.bold);
-		}
-
 		return (
 				<div className={classes.App}>
-					<Cockpit/>
+					<Cockpit btnClasses={classes.Button} togglePersonsHandler={this.togglePersonsHandler} persons={this.state.persons}></Cockpit>
 					{personsToRender}
 				</div>
 		);

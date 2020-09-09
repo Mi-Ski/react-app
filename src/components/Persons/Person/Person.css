@@ -7,6 +7,7 @@
     text-align: center;
     cursor: pointer;
     border-radius: 999rem;
+    color: white;
 } .Person:hover{
     background-color: #f703ff13;
 }
