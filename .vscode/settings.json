@@ -12,7 +12,7 @@
       "editor.background": "#181818"
     },
     "[OS X Flat Dark]": {
-      "editor.selectionBackground": "#2e89ff7a",
+      "editor.selectionBackground": "#2e89ff7a"
     },
     "[Pop N' Lock Theme by Luxcium ✨ Alexis's Black ⛷]": {
       "editorCursor.foreground": "#ffffff"
@@ -21,11 +21,12 @@
       "editorCursor.foreground": "#ffffff"
     }
   },
-  
+
   "editor.tokenColorCustomizations": {
     "[NotepadPlusPlus Remixed Theme]": {
       "comments": "#a7a7a7"
-    },
+    }
   },
-    "auto-close-tag.enableAutoCloseSelfClosingTag": true
+  "auto-close-tag.enableAutoCloseSelfClosingTag": true,
+  "keyboard.dispatch": "keyCode"
 }
