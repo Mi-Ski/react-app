@@ -6,7 +6,7 @@ import classes from "./App.css";
 class App extends Component {
   constructor(props) {
 	  console.log("[app.js] constructor");
-	  // super(props);
+	  super(props);
 	  
 	  this.state = {
 		  persons: [

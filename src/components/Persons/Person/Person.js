@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classes from './Person.css';
 
-const person = (props) => {
-    console.log('[person.js] rendering');
-// let random = Math.random();
-// if (random > 0.7) {
-    //     throw new Error ('a terrible failure occured!')
-    // }
+export default class Person extends Component {
+    render() {
+        console.log('[person.js] rendering');
 
-    return (
-        <div className={classes.Person}>
-            <p onClick={props.click}>I'm {props.name} and I'm {props.age} years old. {Math.floor(Math.random() * 100)}</p>
-            <input type="text" onChange={props.changed} defaultValue={props.name}/>
-        </div>
-    );
+        // in class based components props are accesses with "this.props" since they're properties of the class
+        return (
+            <div className={classes.Person}>
+                <p onClick={this.props.click}>I'm {this.props.name} and I'm {this.props.age} years old. {Math.floor(Math.random() * 100)}</p>
+                <input type="text" onChange={this.props.changed} defaultValue={this.props.name}/>
+            </div>
+        );
+    }
 };
-export default person;
