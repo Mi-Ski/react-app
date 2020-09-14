@@ -2,10 +2,10 @@ import React, { Component} from 'react';
 import Person from './Person/Person'
 
 export default class Persons extends Component {
-   static getDerivedStateFromProps (props, state) {
-      console.log('[persons.js] getDerivedStateFromProps');
-      return state;
-   }
+   // static getDerivedStateFromProps (props, state) {
+   //    console.log('[persons.js] getDerivedStateFromProps');
+   //    return state;
+   // }
 
    shouldComponentUpdate (nextProps, nextState) {
       // returns a boolean
@@ -15,10 +15,12 @@ export default class Persons extends Component {
 
    getSnapshotBeforeUpdate (perviousProps, previousState) {
       console.log('[persons.js] getSnapshotBeforeUpdate');
+      return {message: 'Snapshot before update!💥'};
    }
 
-   componentDidUpdate () {
+   componentDidUpdate (previousProps, previousState, snapshot) {
       console.log('[persons.js] componentDidUpdate');
+      console.log(snapshot);
    }
 
    render () {
