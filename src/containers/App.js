@@ -27,9 +27,9 @@ class App extends Component {
 	console.log('[app.js] componentdidmount');
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    return true;
+  shouldComponentUpdate () {
     console.log('[app.js] shouldComponentUpdate');
+    return true;
   }
 
   getSnapshotBeforeUpdate() {
