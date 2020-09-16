@@ -14,7 +14,8 @@ class App extends Component {
 			  { id: "dfsd", name: "Manu", age: 29 },
 			  { id: "34l", name: "Stephanie", age: 26 },
 			],
-			personsVisibility: false,
+      personsVisibility: false,
+      cockpitShown: true
     };
   };
 
@@ -90,13 +91,19 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit
+        <button onClick={
+         () => {
+           this.setState({cockpitShown: !this.state.cockpitShown})
+         } 
+        }>Toggle Cockpit</button>
+        
+        {this.state.cockpitShown ? (<Cockpit
           title={this.props.title}
           btnClasses={classes.Button}
           togglePersonsHandler={this.togglePersonsHandler}
           personsVisibility={this.state.personsVisibility}
-          persons={this.state.persons}
-        ></Cockpit>
+          personsLength={this.state.persons.length}
+        ></Cockpit>) : null}
         {personsToRender}
       </div>
     );
