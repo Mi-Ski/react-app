@@ -44,7 +44,7 @@ export default class Persons extends PureComponent {
           click={() => this.props.clicked(index)}
           changed={(event) => this.props.changed(event, el.id)}
         />
-      );
-    });
+      )
+    })
   }
 }

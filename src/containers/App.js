@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
+import withClass from "../hoc/withClass"
+import Aux from "../hoc/Aux"
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +36,7 @@ class App extends Component {
   }
 
   getSnapshotBeforeUpdate() {
-    return "haha";
+    return "[app.js] getSnapshotBeforeUpdate haha";
   }
 
   componentDidUpdate (prevProps, prevState, snapshot) {
@@ -82,33 +84,34 @@ class App extends Component {
     if (this.state.personsVisibility) {
       personsToRender = (
         <Persons
-          persons={this.state.persons}
-          clicked={this.deletePersonHandler}
+        persons={this.state.persons} clicked={this.deletePersonHandler}
           changed={this.nameChnagedHandler}
         />
       );
     }
 
     return (
-      <div className={classes.App}>
-        <button onClick={
-         () => {
-           this.setState({cockpitShown: !this.state.cockpitShown})
-         } 
-        }>Toggle Cockpit</button>
-        
-        {this.state.cockpitShown ? (<Cockpit
-          title={this.props.title}
-          btnClasses={classes.Button}
-          togglePersonsHandler={this.togglePersonsHandler}
-          personsVisibility={this.state.personsVisibility}
-          personsLength={this.state.persons.length}
-        ></Cockpit>) : null}
-        {personsToRender}
-      </div>
+       <Aux>
+         <button onClick={
+          () => {
+            this.setState({cockpitShown: !this.state.cockpitShown})
+          } 
+         }>Toggle Cockpit</button>
+         
+         { this.state.cockpitShown ? 
+           (<Cockpit
+             title={this.props.title}
+             btnClasses={classes.Button}
+             togglePersonsHandler={this.togglePersonsHandler}
+             personsVisibility={this.state.personsVisibility}
+             personsLength={this.state.persons.length}
+           ></Cockpit>) 
+          : null }
+         {personsToRender}
+       </Aux> 
     );
-  }
-}
+  };
+};
 
 // radium == a higher order component
-export default App;
+export default withClass(App, classes.App);

@@ -1,7 +1,12 @@
 *{
+  margin-top: 10px;
+}
+
+.App{
   text-align: center;
   margin-top: 10px;
 }
+
 
 button{
   background-color: rgba(0, 84, 105, 0);
