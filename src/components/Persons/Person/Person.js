@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Aux from "../../../hoc/Aux";
+import Auxiliary from "../../../hoc/Auxiliary";
+import withClass from "../../../hoc/withClass";
 import classes from "./Person.css";
 
-export default class Person extends Component {
+class Person extends Component {
   render() {
     console.log("[person.js] rendering");
 
@@ -10,9 +11,8 @@ export default class Person extends Component {
     return (
       // react.createElement -> (type, [props], [...children])
       // can use only one type, (h1, react component or jk) 
-      // Aux can also be replaced with React.Fragment, which works by default
-      <Aux>
-        <div className={classes.Person}>
+      // Auxiliary can also be replaced with React.Fragment, which works by default
+      <Auxiliary>
           <p onClick={this.props.click}>
             I'm {this.props.name} and I'm {this.props.age} years old.{" "}
             {Math.floor(Math.random() * 100)}
@@ -22,8 +22,9 @@ export default class Person extends Component {
             onChange={this.props.changed}
             defaultValue={this.props.name}
           />
-        </div>
-      </Aux>
+      </Auxiliary>
     );
   }
 }
+
+export default withClass(Person, classes.Person);

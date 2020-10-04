@@ -34,7 +34,6 @@ export default class Persons extends PureComponent {
   }
  
   render() {
-    console.log("[persons.js] rendering...");
     return this.props.persons.map((el, index) => {
       return (
         <Person

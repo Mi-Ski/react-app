@@ -9,7 +9,7 @@ const cockpit = (props) => {
         console.log('[Cockpit.js] useEffect');
         // http request...
         const timer = setTimeout(() => {
-            alert('1000% real data fetch')
+            // alert('1000% real data fetch')
         }, 1000)
         return () => {
             clearTimeout(timer);

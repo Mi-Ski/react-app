@@ -15,10 +15,11 @@
       "editor.selectionBackground": "#2e89ff7a"
     },
     "[Pop N' Lock Theme by Luxcium ✨ Alexis's Black ⛷]": {
-      "editorCursor.foreground": "#ffffff"
+      "editorCursor.foreground": "#d4b6b6"
     },
     "[Pop N' Lock Theme by Luxcium ✨ TSA/ASD 🧩]": {
-      "editorCursor.foreground": "#ffffff"
+      "editorCursor.foreground": "#ffffff",
+      "editorLineNumber.foreground": "#59ff99"
     },
     "[Default Dark+]": {
       "editor.background": "#181818",
