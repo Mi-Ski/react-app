@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import Auxiliary from "../../../hoc/Auxiliary";
 import withClass from "../../../hoc/withClass";
 import classes from "./Person.css";
 
 class Person extends Component {
+  componentDidMount() {
+    // document.querySelector('input').focus();
+  }
   render() {
     console.log("[person.js] rendering");
-
     // in class based components props are accesses with "this.props" since they're properties of the class
     return (
       // react.createElement -> (type, [props], [...children])
@@ -25,6 +28,13 @@ class Person extends Component {
       </Auxiliary>
     );
   }
+}
+
+Person.propTypes = {
+  click: PropTypes.func,
+  age: PropTypes.number,
+  name: PropTypes.string,
+  changed: PropTypes.func2
 }
 
 export default withClass(Person, classes.Person);

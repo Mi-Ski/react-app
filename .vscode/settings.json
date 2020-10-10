@@ -9,7 +9,8 @@
       "editor.selectionBackground": "#ff00c8b9"
     },
     "[Oceanic Next (dimmed bg)]": {
-      "editor.background": "#181818"
+      "editor.background": "#181818",
+      "editorLineNumber.foreground": "#59ff99"
     },
     "[OS X Flat Dark]": {
       "editor.selectionBackground": "#2e89ff7a"

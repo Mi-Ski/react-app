@@ -18,6 +18,7 @@ class App extends Component {
 			],
 			personsVisibility: false,
 			cockpitShown: true,
+			counter: 0
 		};
 	}
 
@@ -65,7 +66,12 @@ class App extends Component {
 		const newPersonsArray = [...this.state.persons];
 		newPersonsArray[matchingPersonId] = personToChange;
 
-		this.setState({ persons: newPersonsArray });
+		this.setState((prevState, currentProps) => {
+			return{
+				persons: newPersonsArray,
+				counter: prevState.counter + 10
+			};
+		});
 	};
 
 	togglePersonsHandler = () => {

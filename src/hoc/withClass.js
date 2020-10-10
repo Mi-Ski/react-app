@@ -3,6 +3,7 @@ import React from 'react';
 // a function that returns a functional component. higher order component
 const withClass = (WrappedComponent, myClass) => {
     return props => (
+        // react combines all props to a props object, props={props} won't work
         <div className={myClass}>
             <WrappedComponent {...props} />
         </div>
