@@ -27,12 +27,11 @@ const App = (props) => {
 			<Expenses items={list} />
 			<div>
 			</div>
-
-			<input id="title" type="text" placeholder="Expense title" />
+			{/* <input id="title" type="text" placeholder="Expense title" />
 			<input id="amount" type="number" placeholder="Amount" />
 			<button id="btn" onClick={btnHandler}>
 				Submit
-			</button>
+			</button> */}
 		</div>
 	);
 };
