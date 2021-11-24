@@ -1,55 +1,41 @@
-import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense'
 import './App.scss';
 
-const App = (props) => {
-	const [list, setList] = useState(props.expenses);
+const expenses = [
+	{
+		id: 'e1',
+		title: 'Blueberries',
+		amount: 94.12,
+		date: new Date(2020, 7, 14),
+	},
+	{ id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+	{
+		id: 'e3',
+		title: 'Car Insurance',
+		amount: 294.67,
+		date: new Date(2021, 2, 28),
+	},
+	{
+		id: 'e4',
+		title: 'New Desk (Wooden)',
+		amount: 450,
+		date: new Date(2021, 5, 12),
+	},
+];
 
-	const btnHandler = () => {
-		const titleEl = document.getElementById('title');
-		const amountEl = document.getElementById('amount');
-		const newObj = {};
+const addExpenseHandler = (expense) => {
+	console.log("In app JS");
+	console.log(expense);
+}
 
-		if (titleEl.value && amountEl.value) {
-			newObj.id = Math.random() * 1000;
-			newObj.title = titleEl.value;
-			newObj.amount = amountEl.value;
-			newObj.date = new Date();
-
-			list.unshift(newObj);
-			console.log(list);
-		setList(list);
-		} else return;
-	};
-
+const App = () => {
 	return (
 		<div className="App">
-			<Expenses items={list} />
-			<div>
-			</div>
-			{/* <input id="title" type="text" placeholder="Expense title" />
-			<input id="amount" type="number" placeholder="Amount" />
-			<button id="btn" onClick={btnHandler}>
-				Submit
-			</button> */}
+			<NewExpense onNewExpense={addExpenseHandler}/>
+			<Expenses items={expenses} />
 		</div>
 	);
 };
 
 export default App;
-
-{
-	/* {list.map((el) => (
-				<div
-					title={el.title}
-					amount={el.amount}
-					date={el.date}
-					key={el.id}
-				></div>
-			))} */
-}
-{
-	/* {list.map(el => (
-				<div key={el.id}>{el.title}</div>
-			))} */
-}
